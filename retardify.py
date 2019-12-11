@@ -2,12 +2,12 @@ import argparse
 
 #args
 parser = argparse.ArgumentParser(description='Dedicated to speaking with idiots.')
-parser.add_argument("--text", required=True, type=str, help="Pass text value you want to retardify.")
+parser.add_argument("-r", "--retardify", action="store_true", help="Retardify text.")
+parser.add_argument("--text", "-t", required=True, type=str, help="Passes text value.")
 
 #getting args
 args = parser.parse_args()
 text = args.text
-
 #yes
 def retardify(text):
     lower = text.lower()
@@ -21,4 +21,5 @@ def retardify(text):
                 result += currChar
     return result
 
-print(retardify(text))
+if args.retardify:
+    print(retardify(text))
